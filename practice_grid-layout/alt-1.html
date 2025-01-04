@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQL Server Sessions</title>
+    <style>
+        /* Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+            overscroll-behavior: contain;
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch; /* iOS bounce effect */
+        }
+
+        /* Header Bar */
+        .app-bar {
+            background-color: #6200ee;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .app-bar h1 {
+            font-size: 1.8em;
+        }
+
+        /* Card Style */
+        .card {
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2 {
+            font-weight: 500;
+            color: #6200ee;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        /* Key Metrics List */
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s ease;
+        }
+
+        ul li:hover {
+            background-color: #f0f0f0;
+        }
+
+        ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* Collapsible Tab */
+        .collapsible {
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #6200ee;
+            color: white;
+            text-align: left;
+            outline: none;
+            border: none;
+            font-size: 1em;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .collapsible:hover {
+            background-color: #5300d6;
+        }
+
+        .content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 15px;
+        }
+
+        .content.open {
+            max-height: 150px; /* Adjust this height if content grows */
+            padding: 15px;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Footer */
+        .app-footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #6200ee;
+            color: white;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .card {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="app-bar">
+        <h1>SQL Server Sessions</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Overview Section -->
+        <section class="card">
+            <h2>Overview</h2>
+            <p>
+                The SQL Server Sessions chart provides a breakdown of active and idle sessions, 
+                login types, and session durations. It helps database administrators track 
+                performance and optimize resources effectively.
+            </p>
+        </section>
+
+        <!-- Key Metrics Section -->
+        <section class="card">
+            <h2>Key Metrics</h2>
+            <ul>
+                <li><strong>Active Sessions:</strong> Displays sessions currently executing queries.</li>
+                <li><strong>Idle Sessions:</strong> Sessions connected but not running queries.</li>
+                <li><strong>Session Duration:</strong> Tracks the length of each session.</li>
+                <li><strong>Login Types:</strong> Differentiates between Windows and SQL logins.</li>
+            </ul>
+
+            <!-- Collapsible Pro Tips Tab -->
+            <button class="collapsible">Pro Tips</button>
+            <div class="content">
+                <p>
+                    Use this chart to identify long-running queries and idle connections. 
+                    Highlight sessions with long durations for optimization.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <p>&copy; 2025 SQL Insights</p>
+    </footer>
+
+    <script>
+        // JavaScript for collapsible tab behavior
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                content.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

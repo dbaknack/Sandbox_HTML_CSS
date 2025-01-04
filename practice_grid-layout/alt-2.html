@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monitoring Dashboard</title>
+    <style>
+        /* Import Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+            overflow: hidden;
+        }
+
+        /* Header Styling */
+        header {
+            width: 100%;
+            padding: 20px;
+            background: #6200ee;
+            color: white;
+            font-size: 1.5em;
+            font-weight: 500;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Columns Container */
+        .columns-container {
+            display: flex;
+            gap: 10px;
+            flex-grow: 1;
+            height: 0;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
+            flex-grow: 1;
+            min-height: 0;
+            resize: horizontal;
+            overflow-x: auto;
+            min-width: 200px;
+            position: relative;
+        }
+
+        /* Card Style */
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2 {
+            font-size: 1.2em;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #6200ee;
+        }
+
+        .card p {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .details {
+            display: block;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f2f2f7;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .details ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+
+        .details ul li {
+            margin-bottom: 5px;
+        }
+
+        .details a {
+            color: #6200ee;
+            text-decoration: none;
+        }
+
+        .details a:hover {
+            text-decoration: underline;
+        }
+
+        .toggle-details {
+            cursor: pointer;
+            color: #6200ee;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .columns-container {
+                flex-direction: column;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>Monitoring Dashboard</header>
+
+    <div class="columns-container">
+        <!-- Disk Space Column -->
+        <div class="column">
+            <div class="card">
+                <h2>Disk Space Overview</h2>
+                <div class="chart">Disk Chart</div>
+                <div class="details">Detailed information about disk space usage trends, fragmentation, and predictions.</div>
+            </div>
+            <div class="card">
+                <h2>Drive C:</h2>
+                <p>Total: 500GB</p>
+                <p>Used: 350GB</p>
+                <p>Free: 150GB</p>
+                <div class="details">Details about Drive C's storage distribution and file types.</div>
+            </div>
+            <div class="card">
+                <h2>Drive D:</h2>
+                <p>Total: 1TB</p>
+                <p>Used: 600GB</p>
+                <p>Free: 400GB</p>
+                <div class="details">Details about Drive D's performance and backup status.</div>
+            </div>
+        </div>
+
+        <!-- CPU Usage Column -->
+        <div class="column">
+            <div class="card">
+                <h2>CPU Usage</h2>
+                <div class="chart">CPU Chart</div>
+                <div class="details">Detailed CPU utilization breakdown including core performance and processes.</div>
+            </div>
+            <div class="card">
+                <h2>Load Average</h2>
+                <p>1 Min: 15%</p>
+                <p>5 Min: 20%</p>
+                <p>15 Min: 18%</p>
+                <div class="details">Analysis of load trends over time.</div>
+            </div>
+        </div>
+
+        <!-- Host Status Column -->
+        <div class="column">
+            <div class="card">
+                <h2>Host Status</h2>
+                <div class="chart">Status Chart</div>
+                <div class="details">Host uptime and connectivity metrics.</div>
+            </div>
+            <div class="card">
+                <h2>Uptime</h2>
+                <p>3 Days, 4 Hours, 22 Minutes</p>
+                <div class="details">Detailed uptime history and downtime logs.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

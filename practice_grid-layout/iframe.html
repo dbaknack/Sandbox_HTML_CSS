@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Iframe Example</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            background-color: #f0f0f0; /* Optional: Background color for the container */
+        }
+
+        .iframe-container {
+            width: 100%;         /* Set width for the cropped area */
+            height:100%;        /* Set height for the cropped area */
+            position: relative;  /* Enables absolute positioning for the iframe */
+            overflow: hidden;    /* Prevents any overflow */
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: -50px;         /* Adjust Y offset to crop vertically */
+            left: -250;        /* Adjust X offset to crop horizontally */
+            border: none;        /* Optional: Removes border */
+            overflow: hidden;    /* Prevent scrolling inside the iframe */
+            pointer-events: none; /* Disable interaction within the iframe */
+border-color: red;
+border: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="iframe-container">
+            <iframe src="https://www.chartjs.org/docs/latest/charts/doughnut.html#doughnut" frameborder="0"></iframe>
+        </div>
+    </div>
+</body>
+</html>

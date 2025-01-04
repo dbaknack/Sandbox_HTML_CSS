@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQL Server Monitoring Dashboard</title>
+
+    <!-- Link to External CSS File -->
+    <link rel="stylesheet" href="./styles.css" />
+
+    <!-- Link to charts.js -->
+  	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- link chart data scripts, and layout -->
+    <script src="./chart-scripts.js"></script>
+    <script src="./layout.js"></script>
+</head>
+<body>
+    <header>
+        Host Monitoring: <span id="hostName">ServerName</span>, Instance Name: <span id="instanceName">Instance01</span>
+        <div class="header-info">Real-time monitoring and diagnostics for SQL Server instances</div>
+    </header>
+    <div class="columns-container">
+        <!-- COLUMN 1 -->
+        <div class="column">
+            <!-- Date Card -->
+            <div class="card" onmouseover="startBlurTimer(this)" onmouseout="cancelBlurTimer(this)">
+                <h2>Current Date</h2>
+                <p id="current-date"></p>
+            </div>
+
+             <!-- links card-->
+            <div class="card" onmouseover="startBlurTimer(this)" onmouseout="cancelBlurTimer(this)">
+                <h2>Documentation & Links</h2>
+                <div class="toggle-details" onclick="toggleDetails(this)">Details</div>
+                <div class="details">
+                    <ul>
+                        <li><a href="#">SQL Server Documentation</a></li>
+                        <li><a href="#">Monitoring Best Practices</a></li>
+                        <li><a href="#">Performance Tuning Guide</a></li>
+                        <li><a href="#">SQL Server Security Guidelines</a></li>
+                        <li><a href="#">SQL Server Backup and Recovery</a></li>
+                        <li><a href="#">Query Optimization Tips</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CHART card -->
+            <div class="card" onmouseover="startBlurTimer(this)" onmouseout="cancelBlurTimer(this)">
+                <div class="chart-container" style="position: relative; height:40vh; width:30vw;">
+                    <canvas id="barChart1"></canvas>
+                </div>
+                <div class="toggle-details" onclick="toggleDetails(this)">Details</div>
+                <div class="details">
+                    <ul>
+                        <li>Disk fragmentation analysis</li>
+                        <li>Prediction of storage needs</li>
+                        <li><a href="#">Learn more about disk optimization</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- COLUMN 2-->
+        <div class="column">
+            <!-- CHART card -->
+            <div class="card" onmouseover="startBlurTimer(this)" onmouseout="cancelBlurTimer(this)">
+                <div class="chart-container" style="position: relative; height:40vh; width:30vw;">
+                    <canvas id="lineChart1"></canvas>
+                </div>
+                <div class="toggle-details" onclick="toggleDetails(this)">Details</div>
+                <div class="details">
+                    <ul>
+                        <li>Disk fragmentation analysis</li>
+                        <li>Prediction of storage needs</li>
+                        <li><a href="#">Learn more about disk optimization</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" onmouseover="startBlurTimer(this)" onmouseout="cancelBlurTimer(this)">
+                <h2>Documentation & Links</h2>
+                <div class="toggle-details" onclick="toggleDetails(this)">Details</div>
+                <div class="details">
+                    <ul>
+                        <li><a href="#">SQL Server Documentation</a></li>
+                        <li><a href="#">Monitoring Best Practices</a></li>
+                        <li><a href="#">Performance Tuning Guide</a></li>
+                        <li><a href="#">SQL Server Security Guidelines</a></li>
+                        <li><a href="#">SQL Server Backup and Recovery</a></li>
+                        <li><a href="#">Query Optimization Tips</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- COLUMN 3 -->
+        <div class="column">
+            <div class="card" onmouseover="startBlurTimer(this)" onmouseout="cancelBlurTimer(this)">
+                <h2>Preferences</h2>
+                <p>Adjust the site preferences below:</p>
+                <div class="settings-container">
+                    <label for="blur-toggle">Enable Blur Effect:</label>
+                    <input type="checkbox" id="blur-toggle" checked onchange="toggleBlurSetting()">
+
+                    <label for="blur-strength">Blur Strength:</label>
+                    <input type="range" id="blur-strength" min="0" max="10" value="2.5" onchange="updateBlurStrength(this.value)">
+
+                    <label for="dark-mode-toggle">Enable Dark Mode:</label>
+                    <input type="checkbox" id="dark-mode-toggle" onchange="toggleDarkMode()">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+</body>
+</html>
